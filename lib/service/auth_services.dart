@@ -31,7 +31,7 @@ class AuthService {
       String jsonData = jsonEncode(userData);
 
       http.Response res = await http.post(
-        Uri.parse('http://${Constants.serverIP}:${Constants.serverPort}/api/auth/register'),
+        Uri.parse('http://${Constants.serverIP}:/api/auth/register'),//${Constants.serverPort}
         body: jsonData,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -74,7 +74,7 @@ class AuthService {
   }) async {
     try {
       http.Response res = await http.post(
-        Uri.parse('http://${Constants.serverIP}:${Constants.serverPort}/api/auth/login'),
+        Uri.parse('http://${Constants.serverIP}:/api/auth/login'),//${Constants.serverPort}
         body: jsonEncode({
           'mail': email,
           'password': password,
@@ -145,7 +145,7 @@ class AuthService {
   Future<void> sendMessage(String message) async {
     try {
       final response = await http.post(
-        Uri.parse('http://${Constants.serverIP}:${Constants.serverPort}/api/auth/'),
+        Uri.parse('http://${Constants.serverIP}:/api/auth/'),//${Constants.serverPort}
 
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -171,7 +171,7 @@ class AuthService {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
 
-    final url = Uri.parse('http://${Constants.serverIP}:${Constants.serverPort}/api/chat/save');
+    final url = Uri.parse('http://${Constants.serverIP}:/api/chat/save');//${Constants.serverPort}
     final headers = {'Content-Type': 'application/json'};
     final body = jsonEncode(
         {' username': username, 'receiver': receiver, 'message': message});
@@ -203,7 +203,7 @@ class AuthService {
     String? token = prefs.getString('x-auth-token');
     String? email = prefs.getString('email');
     bool? isAdmin = prefs.getBool('isAdmin');
-    final url = Uri.parse('http://${Constants.serverIP}:${Constants.serverPort}/api/user/$serial');
+    final url = Uri.parse('http://${Constants.serverIP}:/api/user/$serial');//${Constants.serverPort}
 
     try {
       final response = await http.get(

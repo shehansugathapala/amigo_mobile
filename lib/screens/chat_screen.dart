@@ -173,7 +173,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
 
 class Constants {
-  static const String serverIP = '192.168.8.216';
+  static const String serverIP = '51.20.8.67';
   static const int serverPort = 5002;
 }
 

@@ -1,5 +1,5 @@
 class Constants {
-  static const String serverIP = '192.168.8.216';
+  static const String serverIP = '92.168.188.125';
   static const int serverPort = 5002;
   static const String uri = 'http://$serverIP:$serverPort'; // Construct the URI
 
